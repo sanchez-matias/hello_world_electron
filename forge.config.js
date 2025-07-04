@@ -3,13 +3,17 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    icon: 'assets/icon',
     asar: true,
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        setupIcon: 'assets/icon.ico',
+        iconUrl: 'https://tu-sitio.com/icon.ico'
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -27,7 +31,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        // background: './assets/dmg-background.png',
+        background: './assets/icon.ico',
         format: 'ULFO'
       }
     },
